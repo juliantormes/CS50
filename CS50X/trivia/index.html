@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* Part 1 */
+            let buttons = document.querySelectorAll('button'); // Selects all buttons
+            let correct = document.querySelector('.correct');
+            let incorrects = document.querySelectorAll('.incorrect');
+            let answerText = document.querySelector('#answer1');
+
+            // Function to reset all button colors
+            function resetButtonColors() {
+                buttons.forEach(function(button) {
+                    button.style.backgroundColor = ''; // Clear any inline background-color styles
+                });
+            }
+
+            // Set up the correct button
+            correct.addEventListener('click', function () {
+                resetButtonColors();
+                correct.style.backgroundColor = 'green';
+                answerText.innerHTML = 'Correct!';
+            });
+
+            // Set up the incorrect buttons
+            incorrects.forEach(function(button) {
+                button.addEventListener('click', function () {
+                    resetButtonColors();
+                    button.style.backgroundColor = 'red';
+                    answerText.innerHTML = 'Incorrect.';
+                });
+            });
+
+        /* Part 2 */
+        let input = document.querySelector('input');
+        let answerText2 = document.querySelector('#answer2');
+
+        // Function to check the answer
+        function checkAnswer() {
+            if (input.value.toLowerCase() === 'switzerland') {
+                input.style.backgroundColor = 'green';
+                answerText2.innerHTML = 'Correct!';
+            } else {
+                input.style.backgroundColor = 'red';
+                answerText2.innerHTML = 'Incorrect.';
+            }
+        }
+
+        // Function to reset input color
+        function resetInputColor() {
+            if (input.value === '') {
+                input.style.backgroundColor = ''; // Resets the input field's color
+            }
+        }
+
+        // Event listener for the check button
+        document.querySelector('#check').addEventListener('click', checkAnswer);
+
+        // Event listener for input field value change
+        input.addEventListener('input', resetInputColor);
+    });
+</script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>Which planet in our solar system is known for having rings?</h3>
+            <p id="answer1"></p>
+            <button class="incorrect">Mars</button>
+            <button class="incorrect">Earth</button>
+            <button class="correct">Saturn</button>
+            <button class="incorrect">Mercury</button>
+            <button class="incorrect">Venus</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Which country has the world's longest coastline?</h3>
+            <p id="answer2"></p>
+            <input type="text">
+            <button id="check">Check Answer</button>
+        </div>
+             <!-- New Question 1: Multiple correct answers -->
+     <div class="section">
+        <h2>Part 3: Select All That Apply</h2>
+        <hr>
+        <h3>Which of the following are types of renewable energy?</h3>
+        <p id="answer3"></p>
+        <button class="multi-correct">Solar</button>
+        <button class="multi-correct">Wind</button>
+        <button class="multi-incorrect">Coal</button>
+        <button class="multi-correct">Hydroelectric</button>
+        <button class="multi-incorrect">Natural Gas</button>
+    </div>
+
+    <!-- New Question 2: True or False -->
+    <div class="section">
+        <h2>Part 4: True or False</h2>
+        <hr>
+        <h3>True or False: Light travels faster than sound.</h3>
+        <p id="answer4"></p>
+        <button class="true">True</button>
+        <button class="false">False</button>
+    </div>
+
+    <!-- New Question 3: Number Input -->
+    <div class="section">
+        <h2>Part 5: Number Input</h2>
+        <hr>
+        <h3>How many days are there in a leap year?</h3>
+        <p id="answer5"></p>
+        <input type="number" id="leap-year-input">
+        <button id="check-leap-year">Check Answer</button>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+If songs.db contains the top 100 songs of one listener from 2018,
+how would you characterize their audio aura?
+
+    +-------------+--------------+-------------------+
+    | AVG(energy) | AVG(valence) | AVG(danceability) |
+    +-------------+--------------+-------------------+
+    | 0.65906     | 0.484443     | 0.71646           |
+    +-------------+--------------+-------------------+
+
+    Based on the previous query result, we can say that
+    the audio aura of the listener has high energy (0.65906), high danceability (0.71646),
+    and low valence (0.484443).
+
+    Hypothesize about why the way you’ve calculated this aura might
+    not be very representative of the listener. What better ways of
+    calculating this aura would you propose?
+
+    We can improve the computation of the audio aura by
+    taking into account factors such as the times each song is reproduce,
+    the tempo, and the instrumentation or the genre of the song. This will help to
+    the calculation and create a more accurate and personalized audio aura.
